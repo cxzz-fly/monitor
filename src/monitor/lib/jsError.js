@@ -1,25 +1,23 @@
 import getLastEvents from '../utils/getLastEvents'
+import getSelector from '../utils/getSlector'
+import tracker from '../utils/tracker'
+
 
 export function injectJsError () {
   window.addEventListener('error', (event) => { // 监听错误对象
-    let lastEvent = getLastEvents()
-    console.log(333, lastEvent);
-
-    console.log('event', event)
+    const lastEvent = getLastEvents()
     const { message, filename, lineno, colno, error: { stack } } = event
     let log = {
       kind: 'stability', // 监控指标大类
       type: 'error', // 小类 
       errorType: 'jsError', // js执行错误 
-      url: '',
       message,
       filename,
       position: `${lineno}:${colno}`,
       stack: getLines(stack),
-      slector: ''//最后操作的一个元素
+      slector: lastEvent ? getSelector(lastEvent.path) : ''//最后操作的一个元素
     }
-    console.log(111, log);
-
+    tracker.send(log)
   })
 
   function getLines (stack) {

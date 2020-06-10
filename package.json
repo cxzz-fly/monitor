@@ -16,6 +16,8 @@
     "html-webpack-plugin": "^4.3.0",
     "standard": "^14.3.4",
     "use-agent": "^1.0.0-alpha.1",
+    "user-agent": "^1.0.4",
+    "useragent": "^2.3.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }
