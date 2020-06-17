@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cxz-monitor</title>
+    <link rel="stylesheet" href="./linkErr">
 </head>
+
 <body>
     <div id="container">
         <div class="content">
@@ -13,12 +16,20 @@
         </div>
     </div>
     <script>
-        function errorClick(){
+        function errorClick() {
             window.someErr.err = 'error'
         }
-        function promiseErrorClick(){
-            window.someErr.err = 'error'
+
+        function promiseErrorClick() {
+            new Promise((resolve, reject) => {
+                window.someErr.err = 'error'
+                // reject('err')
+            }).then(res => {
+                console.log(res);
+            })
         }
     </script>
+    <script src="./scriptErr.js"></script>
 </body>
+
 </html>
