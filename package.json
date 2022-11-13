@@ -19,6 +19,6 @@
     "user-agent": "^1.0.4",
     "useragent": "^2.3.0",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   }
 }
